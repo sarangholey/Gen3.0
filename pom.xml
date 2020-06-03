@@ -114,7 +114,7 @@
 				<configuration>
 					<suiteXmlFiles>
 						<suiteXmlFile>
-							src/test/resources/runners/regereesion_testng.xml
+							src/test/resources/runners/amazonind_regression.xml
 						</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
