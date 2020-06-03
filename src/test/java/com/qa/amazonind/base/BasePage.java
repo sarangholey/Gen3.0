@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -132,8 +135,21 @@ public class BasePage {
 	 * the path of the captured file
 	 */
 	public String getScreenshot() {
+		
+		final String OUTPUT_FOLDER = System.getProperty("user.dir") + "/screenshots/";
+		
 		File src = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
 		String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+		Path pathofFolder = Paths.get(OUTPUT_FOLDER);
+		// if directory exists?
+		if (!Files.exists(pathofFolder)) {
+			try {
+				Files.createDirectories(pathofFolder);
+			} catch (IOException e) {
+				// fail to create directory
+				e.printStackTrace();
+			}
+		}
 		File destination = new File(path);
 
 		try {
