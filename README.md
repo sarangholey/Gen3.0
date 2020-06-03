@@ -4,4 +4,4 @@ E - Commerce Project
 - Hybrid Framework (data driven features included) 
 - Unit testing via TestNG 
 - Build automation tool Maven 
-- Reporting with Extent, tesults and PDF reports
+- Reporting with Extent, Tesults and PDF reports
