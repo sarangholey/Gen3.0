@@ -1,4 +1,4 @@
-package com.qa.amazonind.listners;
+package com.qa.amazonind.listeners;
 
 import java.util.ArrayList;
 import java.util.HashMap;

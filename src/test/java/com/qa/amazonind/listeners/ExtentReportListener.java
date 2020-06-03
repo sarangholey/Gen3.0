@@ -1,4 +1,4 @@
-package com.qa.amazonind.listners;
+package com.qa.amazonind.listeners;
 
 import java.io.IOException;
 import java.nio.file.Files;
