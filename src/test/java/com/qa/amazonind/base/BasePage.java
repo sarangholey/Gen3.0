@@ -24,7 +24,7 @@ import org.openqa.selenium.opera.OperaDriver;
  *	Browser and Properties file initialization
  *	Code with take screenshot method
  */
-public class Basepage {
+public class BasePage {
 
 	public WebDriver driver;
 	public Properties prop;
