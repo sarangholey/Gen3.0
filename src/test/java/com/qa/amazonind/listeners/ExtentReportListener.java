@@ -25,7 +25,7 @@ import com.qa.amazonind.base.BasePage;
 public class ExtentReportListener extends BasePage implements ITestListener {
 	
 	private static String DocumentTitle = "Automation Test Result for Amazon India";
-	private static String ReportName = "Test Results";
+	private static String ReportName = "Automation Test Result for Amazon India";
 	
 	private static String currentDate = dateFormat();
 	private static final String OUTPUT_FOLDER = System.getProperty("user.dir") + "./build/";
