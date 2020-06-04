@@ -1,5 +1,6 @@
 package com.qa.amazonind.tests;
 
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -39,6 +40,18 @@ public class LandingPageTest {
 		logger.info("verifyTitleTest Started");
 		Assert.assertEquals(landingPage.verifyTitle(), AppConstants.LANDING_PAGE_TITLE);
 		logger.info("verifyTitleTest Passed");
+	}
+	
+	@Test
+	public void verifyHotLinksTest()
+	{
+		logger.info("verifyHotLinksTest Started");
+		ArrayList<String> actulaHotLink = AppConstants.hotLinksActualList();
+		ArrayList<String> hotLinks = landingPage.verifyHotLinks();
+		for (int i = 0; i < hotLinks.size(); i++) {
+			Assert.assertEquals(actulaHotLink.get(i), hotLinks.get(i));
+		}
+		logger.info("verifyHotLinksTest Passed");
 	}
 	
 	@AfterMethod
