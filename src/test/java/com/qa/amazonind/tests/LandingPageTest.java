@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.qa.amazonind.util.AppConstants;
 import com.qa.amazonind.base.BasePage;
@@ -24,6 +25,7 @@ public class LandingPageTest {
 	Properties prop;
 	BasePage basePage;
 	LandingPage landingPage;
+	SoftAssert softassert;
 	
 	@BeforeMethod
 	public void setupLandingPageTest()
@@ -32,6 +34,7 @@ public class LandingPageTest {
 		prop = basePage.init_prop();
 		driver = basePage.init_driver(prop);
 		landingPage = new LandingPage(driver);
+		softassert = new SoftAssert();
 	}
 	
 	@Test
@@ -49,8 +52,9 @@ public class LandingPageTest {
 		ArrayList<String> actulaHotLink = AppConstants.hotLinksActualList();
 		ArrayList<String> hotLinks = landingPage.verifyHotLinks();
 		for (int i = 0; i < hotLinks.size(); i++) {
-			Assert.assertEquals(actulaHotLink.get(i), hotLinks.get(i));
+			softassert.assertEquals(actulaHotLink.get(i), hotLinks.get(i));
 		}
+		softassert.assertAll();
 		logger.info("verifyHotLinksTest Passed");
 	}
 	
