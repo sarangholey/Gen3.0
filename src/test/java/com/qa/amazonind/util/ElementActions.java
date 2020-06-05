@@ -80,7 +80,7 @@ public class ElementActions {
 	/**
 	 * This method perform .click operation
 	 * on the WebElement
-	 * @param locator
+	 * @param element
 	 */
 	public void doClickOnWebElement(WebElement element) {
 		try {
