@@ -26,6 +26,12 @@ public class LandingPage extends BasePage {
 	
 	// Page Objects
 	By hotLinks = By.xpath("//div[@id='nav-xshop']/a");
+	By navToolLinks = By.xpath("//div[@id='nav-tools']/a");
+	
+	By accountsAndListsLink = By.xpath("//div[@id='nav-tools']//span[contains(text(),'Account & Lists')][1]");
+	By startHereLink = By.xpath("//div[@id='nav-flyout-accountList']//a[contains(text(),'Start here.')]");
+	By createAccountText = By.xpath("//form[@id='ap_register_form']//h1");
+	By createAccountParametersList = By.xpath("//form[@id='ap_register_form']//label");
 	
 	// Page Methods
 	public String verifyTitle() {
@@ -41,5 +47,21 @@ public class LandingPage extends BasePage {
 		}
 		
 		return hotLinkListText;
+	}
+	
+	public List<WebElement> verifyNavToolLinksDisplayed()
+	{
+		return elementActions.getElementsList(navToolLinks);
+	}
+	
+	public List<WebElement> verifyRegistartionFormVisiblilty()
+	{
+		elementActions.doMoveToElement(accountsAndListsLink);
+		elementActions.waitForElementClickable(startHereLink);
+		elementActions.doActionsClick(startHereLink);
+		elementActions.waitForElementVisible(createAccountParametersList);
+		List<WebElement> listofParamaters = elementActions.getElementsList(createAccountParametersList);
+		return listofParamaters;
+		
 	}
 }

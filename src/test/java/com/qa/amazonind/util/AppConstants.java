@@ -28,10 +28,21 @@ public class AppConstants {
 		hotLinksActualList.add("Sell");
 		hotLinksActualList.add("Gift Ideas");
 		hotLinksActualList.add("Baby");
-		hotLinksActualList.add(""); //AmazonBasics
-		hotLinksActualList.add(""); //Coupons
+		hotLinksActualList.add("AmazonBasics"); //AmazonBasics
+		hotLinksActualList.add("Coupons"); //Coupons
 		
 		return hotLinksActualList;
+	}
+	
+	public static ArrayList<String> registrationFormParameterList()
+	{
+		ArrayList<String> parameterList = new ArrayList<String>();
+		parameterList.add("Your name");
+		parameterList.add("Mobile number");
+		parameterList.add("Email (optional)");
+		parameterList.add("Password");
+		
+		return parameterList;
 	}
 	
 }

@@ -3,10 +3,10 @@
 <suite name="Suite" verbose="5">
 	<listeners>
 		<listener class-name="com.qa.amazonind.listeners.ExtentReportListener"></listener>
-<!-- 		<listener class-name="com.qa.amazonind.listeners.PdfListener"></listener> -->
-<!-- 		<listener class-name="com.qa.amazonind.listeners.TesultsListener"></listener> -->
+		<listener class-name="com.qa.amazonind.listeners.PdfListener"></listener>
+		<listener class-name="com.qa.amazonind.listeners.TesultsListener"></listener>
 	</listeners>
-	<test thread-count="5" name="Test">
+	<test thread-count="2" name="Test" parallel="methods">
 		<classes>
 			<class name="com.qa.amazonind.tests.LandingPageTest" />
 		</classes>
