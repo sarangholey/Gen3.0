@@ -76,6 +76,21 @@ public class ElementActions {
 		}
 		
 	}
+	
+	/**
+	 * This method perform .click operation
+	 * on the WebElement
+	 * @param locator
+	 */
+	public void doClickOnWebElement(WebElement element) {
+		try {
+			element.click();
+		} catch (Exception e) {
+			System.out.println("Some excetion occured while clicking on webelement :" + element);
+			System.out.println(e.getMessage());
+		}
+		
+	}
 
 	/**
 	 * This method perform .click operation
