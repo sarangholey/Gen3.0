@@ -1,5 +1,6 @@
 package com.qa.amazonind.pages;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -7,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.qa.amazonind.util.CommonUtil;
 import com.qa.amazonind.util.ElementActions;
 
 public class SearchProduct {
@@ -31,6 +31,7 @@ public class SearchProduct {
 	By cartIconButton = By.xpath("//a[@id='nav-cart']");
 	By productInCart = By.xpath("//div[@class='a-fixed-left-grid-col a-col-right']//ul//a[@class='a-link-normal sc-product-link']/span");
 	
+	By productSuggestions = By.xpath("//div[@id='suggestions-template']//div[@class='s-suggestion']");
 	
 	
 	// Page Methods
@@ -64,6 +65,18 @@ public class SearchProduct {
 		
 		return false;
 		
+	}
+	
+	public ArrayList<String> verifyKeywordInSuggestionList(String productName)
+	{
+		elementActions.doSendKeys(searchBox, productName);
+		elementActions.waitForElementVisible(productSuggestions);
+		List<WebElement> productList = elementActions.getElementsList(productSuggestions);
+		ArrayList<String> namesOfProdList = new ArrayList<String>();
+		for (int i = 0; i < productList.size(); i++) {
+			namesOfProdList.add(productList.get(i).getAttribute("data-keyword"));
+		}
+		return namesOfProdList;
 	}
 	
 }
