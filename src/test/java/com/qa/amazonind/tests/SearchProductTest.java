@@ -1,5 +1,6 @@
 package com.qa.amazonind.tests;
 
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -42,6 +43,17 @@ public class SearchProductTest {
 		boolean productCartStatus = searchProduct.verifyaddSingleProductsToCart(prodName);
 		Assert.assertEquals(productCartStatus, true);
 		logger.info("verifyaddSingleProductsToCartTest Passed");
+	}
+	
+	@Test
+	public void verifyKeywordInSuggestionListTest()
+	{
+		
+		ArrayList<String> productNameList = searchProduct.verifyKeywordInSuggestionList("dell");
+		for (int i = 0; i < productNameList.size(); i++) {
+			System.out.println("Product suggestion list " + (i+1) + ".  " + productNameList.get(i));
+			Assert.assertEquals(productNameList.get(i).contains("dell"), true);
+		}
 	}
 	
 	@AfterMethod
