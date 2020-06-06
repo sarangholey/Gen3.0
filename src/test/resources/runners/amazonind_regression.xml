@@ -6,9 +6,10 @@
 		<listener class-name="com.qa.amazonind.listeners.PdfListener"></listener>
 		<listener class-name="com.qa.amazonind.listeners.TesultsListener"></listener>
 	</listeners>
-	<test thread-count="2" name="Test" parallel="methods">
+	<test thread-count="2" name="Test" parallel="classes">
 		<classes>
 			<class name="com.qa.amazonind.tests.LandingPageTest" />
+			<class name="com.qa.amazonind.tests.SearchProductTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
