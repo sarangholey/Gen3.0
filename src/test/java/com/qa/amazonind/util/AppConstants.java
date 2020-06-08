@@ -45,4 +45,13 @@ public class AppConstants {
 		return parameterList;
 	}
 	
+	public static ArrayList<String> hmMenuCategoryList()
+	{
+		ArrayList<String> hmCatlist = new ArrayList<String>();
+		hmCatlist.add("SHOP BY CATEGORY");
+		hmCatlist.add("HELP & SETTINGS");
+		
+		return hmCatlist;
+	}
+	
 }
