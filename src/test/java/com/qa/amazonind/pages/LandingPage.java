@@ -33,6 +33,9 @@ public class LandingPage extends BasePage {
 	By createAccountText = By.xpath("//form[@id='ap_register_form']//h1");
 	By createAccountParametersList = By.xpath("//form[@id='ap_register_form']//label");
 	
+	By hamburgerMenuIcon = By.xpath("//div[@id='nav-belt']//a[@id='nav-hamburger-menu']/i");
+	By HMenuMainSections = By.xpath("//div[@id='hmenu-canvas']//ul[@class='hmenu hmenu-visible']/li/div");
+	
 	// Page Methods
 	public String verifyTitle() {
 		return elementActions.doGetPageTitle(AppConstants.LANDING_PAGE_TITLE);
@@ -62,6 +65,20 @@ public class LandingPage extends BasePage {
 		elementActions.waitForElementVisible(createAccountParametersList);
 		List<WebElement> listofParamaters = elementActions.getElementsList(createAccountParametersList);
 		return listofParamaters;
+		
+	}
+	
+	public ArrayList<String> verifyHamburgerMenuMainCategory()
+	{
+		elementActions.waitForElementClickable(hamburgerMenuIcon);
+		elementActions.doClick(hamburgerMenuIcon);
+		elementActions.waitForElementVisible(HMenuMainSections);
+		List<WebElement> mainSectionList = elementActions.getElementsList(HMenuMainSections);
+		ArrayList<String> HmMenuSections = new ArrayList<String>();
+		for (int i = 0; i < mainSectionList.size(); i++) {
+			HmMenuSections.add(mainSectionList.get(i).getText());
+		}
+		return HmMenuSections;
 		
 	}
 }

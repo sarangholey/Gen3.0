@@ -82,6 +82,17 @@ public class LandingPageTest {
 		logger.info("verifyRegistartionFormVisibliltyTest Passed");
 	}
 	
+	@Test
+	public void verifyHamburgerMenuMainCategoryTest()
+	{
+		logger.info("verifyHamburgerMenuMainCategoryTest Started");
+		ArrayList<String> hmactualList = AppConstants.hmMenuCategoryList();
+		for (int i = 0; i < hmactualList.size(); i++) {
+			Assert.assertEquals(landingPage.verifyHamburgerMenuMainCategory().get(i), AppConstants.hmMenuCategoryList().get(i));
+		}
+		logger.info("verifyHamburgerMenuMainCategoryTest Passed");
+	}
+	
 	@AfterMethod
 	public void tearDownLandingPageTest()
 	{
