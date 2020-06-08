@@ -77,7 +77,6 @@ public class LandingPage extends BasePage {
 		ArrayList<String> HmMenuSections = new ArrayList<String>();
 		for (int i = 0; i < mainSectionList.size(); i++) {
 			HmMenuSections.add(mainSectionList.get(i).getText());
-			
 		}
 		return HmMenuSections;
 		
