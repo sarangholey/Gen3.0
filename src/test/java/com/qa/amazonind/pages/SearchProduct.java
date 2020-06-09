@@ -33,6 +33,9 @@ public class SearchProduct {
 	
 	By productSuggestions = By.xpath("//div[@id='suggestions-template']//div[@class='s-suggestion']");
 	
+	By navigationPreviousButton = By.xpath("//div[@class='a-section a-spacing-none a-padding-base']//ul/li");
+	By navigationActiveButton = By.xpath("//div[@class='a-section a-spacing-none a-padding-base']//ul/li/a");
+	
 	
 	// Page Methods
 	public boolean verifyaddSingleProductsToCart(String productName)
@@ -77,6 +80,26 @@ public class SearchProduct {
 			namesOfProdList.add(productList.get(i).getAttribute("data-keyword"));
 		}
 		return namesOfProdList;
+	}
+	
+	public String verifyNavigationsPreviousButton(String productName)
+	{
+		elementActions.doSendKeys(searchBox, productName);
+		elementActions.doClick(searchButton);
+		return elementActions.getElement(navigationPreviousButton).getAttribute("class");
+	}
+	
+	public ArrayList<String> verifyNavigationActiveButtons(String productName)
+	{
+		elementActions.doSendKeys(searchBox, productName);
+		elementActions.doClick(searchButton);
+		ArrayList<String> activeButtonsHrefUrl = new ArrayList<String>();
+		List<WebElement> activeButtons = elementActions.getElementsList(navigationActiveButton);
+		for (int i = 0; i < activeButtons.size(); i++) {
+			activeButtonsHrefUrl.add(activeButtons.get(i).getAttribute("href"));
+		}
+		
+		return activeButtonsHrefUrl;	
 	}
 	
 }

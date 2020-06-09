@@ -1,5 +1,7 @@
 package com.qa.amazonind.tests;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -48,12 +50,32 @@ public class SearchProductTest {
 	@Test
 	public void verifyKeywordInSuggestionListTest()
 	{
-		
+		logger.info("verifyKeywordInSuggestionListTest Started");
 		ArrayList<String> productNameList = searchProduct.verifyKeywordInSuggestionList("dell");
 		for (int i = 0; i < productNameList.size(); i++) {
 			System.out.println("Product suggestion list " + (i+1) + ".  " + productNameList.get(i));
 			Assert.assertEquals(productNameList.get(i).contains("dell"), true);
 		}
+		logger.info("verifyKeywordInSuggestionListTest Passed");
+	}
+	
+	@Test
+	public void verifyNavigationsPreviousButtonTest()
+	{
+		logger.info("verifyNavigationsPreviousButtonTest Started");
+		Assert.assertEquals(searchProduct.verifyNavigationsPreviousButton("dell"), "a-disabled");
+		logger.info("verifyNavigationsPreviousButtonTest Passed");
+	}
+	
+	@Test
+	public void verifyNavigationActiveButtonsTest()
+	{
+		logger.info("verifyNavigationActiveButtonsTest Started");
+		ArrayList<String> activeNavButtonsHref = searchProduct.verifyNavigationActiveButtons("dell");
+		for (int i = 0; i < activeNavButtonsHref.size(); i++) {
+			Assert.assertTrue(activeNavButtonsHref.get(i).contains("https://www.amazon.in/s"));
+		}
+		logger.info("verifyNavigationActiveButtonsTest Passed");
 	}
 	
 	@AfterMethod
